@@ -5,44 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" android:padding="10dp">
+    tools:context=".MainActivity"
+    android:padding="20dp">
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Weather"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="73dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="Ville :"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        />
+    <!-- Search Bar -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter City">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextVille"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/input_shape"
             android:ems="10"
             android:inputType="textPersonName"
-            android:padding="5dp" />
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageButton
-            android:id="@+id/buttonOk"
-            android:layout_width="84dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/app_shapes"
-            app:srcCompat="@android:drawable/ic_media_play" />
-    </LinearLayout>
+    <!-- Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Search"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button_background" />
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E26900"
+        android:layout_marginTop="16dp" />
 
+
+    <!-- ListView -->
     <ListView
         android:id="@+id/listViewMeteo"
         style="@android:style/Widget.Material.ListView"
+        android:layout_width="wrap_content"
+        android:layout_height="319dp"
+        android:layout_marginTop="20dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:background="@drawable/button_selector"
+        android:text="Feedback"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="AMINE SABER ❤️"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+
 </LinearLayout>

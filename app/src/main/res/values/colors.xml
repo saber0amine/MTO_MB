@@ -6,4 +6,14 @@
     <color name="colorPrimary">#00FD87</color>
     <color name="colorAccentDark">#57094D</color>
     <color name="colorAccentLight">#6B0B6A</color>
+    <color name="background_color">#6913F3</color>
+    <color name="hint_color">#FFEB3B</color>
+    <color name="text_color">#2196F3</color>
+    <color name="your_button_color">#009688</color>
+    <color name="bg">#5994C4</color>
+    <color name="title_color">#5F01F7</color>
+    <color name="subtitle_color">#2196F3</color>
+    <color name="icon_color">#9C27B0</color>
+    <color name="footer_text_color">#673AB7</color>
+    <color name="your_color_here">#F44336</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.meteo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,9 +30,13 @@ import org.json.JSONObject;
 
 
 public class MainActivity extends AppCompatActivity {
-    private EditText editTextVille;
+    TextInputLayout textInputLayout ;
+    EditText editTextVille  ;
+
+
+    //private EditText editTextVille;
     private ListView listViewMeteo;
-    private ImageButton buttonOk;
+    //private ImageButton buttonOk;
     List<MeteoItem> data = new ArrayList<>();
 
     private MeteoListModel  model ;
@@ -41,10 +47,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editTextVille = findViewById(R.id.editTextVille);
+        //editTextVille = findViewById(R.id.editTextVille);
         listViewMeteo = findViewById(R.id.listViewMeteo);
-        buttonOk = findViewById(R.id.buttonOk);
-        model = new MeteoListModel(getApplicationContext(),R.layout.list_item_layout,data)  ;
+        //buttonOk = findViewById(R.id.buttonOk);
+        textInputLayout = findViewById(R.id.textInputLayout);
+        editTextVille = textInputLayout.getEditText();
+        AppCompatButton buttonOk = findViewById(R.id.buttonOk);
+
+             model = new MeteoListModel(getApplicationContext(),R.layout.list_item_layout,data)  ;
         listViewMeteo.setAdapter(model);
 
 

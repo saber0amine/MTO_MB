@@ -89,5 +89,4 @@ public class MeteoListModel extends ArrayAdapter<MeteoItem> {
 }
 
 
-//
 
