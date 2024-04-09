@@ -1,15 +1,19 @@
 package com.example.meteo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
@@ -32,6 +37,8 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     TextInputLayout textInputLayout ;
     EditText editTextVille  ;
+
+    BottomNavigationView bottomNavigationView ;
 
 
     //private EditText editTextVille;
@@ -47,12 +54,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //editTextVille = findViewById(R.id.editTextVille);
-        listViewMeteo = findViewById(R.id.listViewMeteo);
-        //buttonOk = findViewById(R.id.buttonOk);
-        textInputLayout = findViewById(R.id.textInputLayout);
+         listViewMeteo = findViewById(R.id.listViewMeteo);
+         textInputLayout = findViewById(R.id.textInputLayout);
         editTextVille = textInputLayout.getEditText();
         AppCompatButton buttonOk = findViewById(R.id.buttonOk);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.action_settings)
+                {
+                    Toast.makeText(MainActivity.this, "Settings clicked", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this , "Profile clicked", Toast.LENGTH_LONG).show();
+                }
+                return true;
+            }
+            });
+
 
              model = new MeteoListModel(getApplicationContext(),R.layout.list_item_layout,data)  ;
         listViewMeteo.setAdapter(model);
@@ -150,6 +171,34 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if(item.getItemId() == R.id.action_settings)
+        {
+            Toast.makeText(MainActivity.this, "Settings clicked", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(MainActivity.this , "Profile clicked", Toast.LENGTH_LONG).show();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
 
 
